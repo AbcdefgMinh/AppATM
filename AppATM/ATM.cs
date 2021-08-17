@@ -17,7 +17,7 @@ namespace AppATM
     public partial class ATM : Form
     {
         private readonly TaiKhoanBAL _taiKhoanBAL;
-        public event LoginSucessDeligate loginSucess;
+        
         public ATM()
         {
             InitializeComponent();
@@ -71,12 +71,36 @@ namespace AppATM
         {
             RutTien rt = new RutTien();
             rt.Show();
-            rt.cashWithdrawal += FrmWithdraw_cashWithdrawal1;
+            rt.Cash += RutTien_Cash;
         }
-        private void FrmWithdraw_cashWithdrawal1(double cash)
+        private void RutTien_Cash(double cash)
         {
             double balance = double.Parse(txtSoDu.Text) - cash;
             txtSoDu.Text = balance.ToString();
+        }
+
+        private void txtPass_Validating(object sender, CancelEventArgs e)
+        {
+            ValidateInput(sender);
+        }
+        private bool ValidateInput(object sender)
+        {
+            TextBox txtInput = (TextBox)sender;
+            if (txtInput.Text == "")
+            {
+                errorProvider1.SetError(txtInput, "Vui lòng nhập thông tin!");
+                return false;
+            }
+
+            errorProvider1.SetError(txtInput, "");
+            return true;
+        }
+
+        private void txtPass_Changed(object sender, EventArgs e)
+        {
+            TaiKhoanBAL mh5 = new TaiKhoanBAL();
+            mh5.MD5Hash(txtMatKhau.Text);
+           
         }
     }
 }

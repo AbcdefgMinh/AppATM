@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace AppATM.Helpers
 {
-    public delegate void CashWithdrawalDelegate(double cash);
+    public delegate void CashDelegate(double cash);
 }

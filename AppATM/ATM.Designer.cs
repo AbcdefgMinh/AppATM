@@ -36,7 +36,6 @@ namespace AppATM
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.lblPass = new System.Windows.Forms.Label();
             this.btnDangNhap = new System.Windows.Forms.Button();
-            this.lblSoDu = new System.Windows.Forms.Label();
             this.btnRutTien = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -62,12 +61,13 @@ namespace AppATM
             // 
             // txtSoDu
             // 
-            this.txtSoDu.Enabled = false;
-            this.txtSoDu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoDu.Location = new System.Drawing.Point(142, 234);
+            this.txtSoDu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoDu.Location = new System.Drawing.Point(81, 229);
             this.txtSoDu.Name = "txtSoDu";
-            this.txtSoDu.Size = new System.Drawing.Size(188, 27);
+            this.txtSoDu.ReadOnly = true;
+            this.txtSoDu.Size = new System.Drawing.Size(188, 30);
             this.txtSoDu.TabIndex = 0;
+            this.txtSoDu.Visible = false;
             // 
             // txtMatKhau
             // 
@@ -76,6 +76,8 @@ namespace AppATM
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(188, 23);
             this.txtMatKhau.TabIndex = 0;
+            this.txtMatKhau.TextChanged += new System.EventHandler(this.txtPass_Changed);
+            this.txtMatKhau.Validating += new System.ComponentModel.CancelEventHandler(this.txtPass_Validating);
             // 
             // lblPass
             // 
@@ -99,16 +101,6 @@ namespace AppATM
             this.btnDangNhap.UseVisualStyleBackColor = false;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
-            // lblSoDu
-            // 
-            this.lblSoDu.AutoSize = true;
-            this.lblSoDu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSoDu.Location = new System.Drawing.Point(12, 237);
-            this.lblSoDu.Name = "lblSoDu";
-            this.lblSoDu.Size = new System.Drawing.Size(63, 20);
-            this.lblSoDu.TabIndex = 1;
-            this.lblSoDu.Text = "Số dư : ";
-            // 
             // btnRutTien
             // 
             this.btnRutTien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
@@ -119,6 +111,7 @@ namespace AppATM
             this.btnRutTien.TabIndex = 2;
             this.btnRutTien.Text = "Rút Tiền";
             this.btnRutTien.UseVisualStyleBackColor = false;
+            this.btnRutTien.Visible = false;
             this.btnRutTien.Click += new System.EventHandler(this.btnRutTien_click);
             // 
             // errorProvider1
@@ -132,7 +125,6 @@ namespace AppATM
             this.ClientSize = new System.Drawing.Size(388, 361);
             this.Controls.Add(this.btnRutTien);
             this.Controls.Add(this.btnDangNhap);
-            this.Controls.Add(this.lblSoDu);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblSTK);
             this.Controls.Add(this.txtMatKhau);
@@ -154,7 +146,6 @@ namespace AppATM
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.Button btnDangNhap;
-        private System.Windows.Forms.Label lblSoDu;
         private System.Windows.Forms.Button btnRutTien;
         private System.Windows.Forms.ErrorProvider errorProvider1;
     }
