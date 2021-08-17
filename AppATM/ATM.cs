@@ -1,5 +1,4 @@
-﻿
-using AppATM.BAL;
+﻿using AppATM.BAL;
 using AppATM.Helpers;
 using System;
 using System.Collections.Generic;
@@ -12,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
+
 namespace AppATM
 {
     public partial class ATM : Form
@@ -94,13 +95,6 @@ namespace AppATM
 
             errorProvider1.SetError(txtInput, "");
             return true;
-        }
-
-        private void txtPass_Changed(object sender, EventArgs e)
-        {
-            TaiKhoanBAL mh5 = new TaiKhoanBAL();
-            mh5.MD5Hash(txtMatKhau.Text);
-           
         }
     }
 }
