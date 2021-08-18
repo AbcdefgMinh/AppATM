@@ -8,7 +8,7 @@ namespace AppATM.DAL.Entities
     public partial class AppRutTien : DbContext
     {
         public AppRutTien()
-            : base("name=AppRutTien")
+            : base("name=Model1")
         {
         }
 

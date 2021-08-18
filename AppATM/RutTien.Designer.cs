@@ -29,19 +29,19 @@ namespace AppATM
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtSoTienDu = new System.Windows.Forms.TextBox();
+            this.txtSoTienRut = new System.Windows.Forms.TextBox();
             this.btnHuy = new System.Windows.Forms.Button();
             this.lblSoTienRut = new System.Windows.Forms.Label();
             this.btnOk = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txtSoTienDu
+            // txtSoTienRut
             // 
-            this.txtSoTienDu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoTienDu.Location = new System.Drawing.Point(52, 71);
-            this.txtSoTienDu.Name = "txtSoTienDu";
-            this.txtSoTienDu.Size = new System.Drawing.Size(209, 27);
-            this.txtSoTienDu.TabIndex = 0;
+            this.txtSoTienRut.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoTienRut.Location = new System.Drawing.Point(52, 71);
+            this.txtSoTienRut.Name = "txtSoTienRut";
+            this.txtSoTienRut.Size = new System.Drawing.Size(209, 27);
+            this.txtSoTienRut.TabIndex = 0;
             // 
             // btnHuy
             // 
@@ -85,7 +85,7 @@ namespace AppATM
             this.Controls.Add(this.lblSoTienRut);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnHuy);
-            this.Controls.Add(this.txtSoTienDu);
+            this.Controls.Add(this.txtSoTienRut);
             this.Name = "RutTien";
             this.Text = "Rút Tiền";
             this.ResumeLayout(false);
@@ -95,7 +95,7 @@ namespace AppATM
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtSoTienDu;
+        private System.Windows.Forms.TextBox txtSoTienRut;
         private System.Windows.Forms.Button btnHuy;
         private System.Windows.Forms.Label lblSoTienRut;
         private System.Windows.Forms.Button btnOk;
