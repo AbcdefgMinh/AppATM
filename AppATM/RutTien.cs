@@ -27,13 +27,23 @@ namespace AppATM
         }
         private void btnOk_Click(object sender, EventArgs e)
         {
-
-            double cash = double.Parse(txtSoTienRut.Text);
-            if (taiKhoan.SoTien - txtSoTienRut <= 50000)
+            //double sotientk = double.Parse(taiKhoan.SoTien);
+            double sotienrut = double.Parse(txtSoTienRut.Text);
+            if ((taiKhoan.SoTien - sotienrut)  <= 50000)
             {
+                MessageBox.Show("Số dư không đủ !");
+                return;
+            }
+            using (var dbcontext = new AppRutTien())
+            {
+                TaiKhoan tk = dbcontext.TaiKhoans.Find(this.taiKhoan.id);
+                tk.SoTien -= sotienrut;
+                dbcontext.SaveChanges();
+                taiKhoan = tk;
+                Cash((double)tk.SoTien);
 
             }
-            Cash(cash);
+            
             
         }
 
@@ -44,7 +54,7 @@ namespace AppATM
 
         private void btnHuy_Click(object sender, EventArgs e)
         {
-            //this.Close();
+            this.Close();
         }
     }
 }

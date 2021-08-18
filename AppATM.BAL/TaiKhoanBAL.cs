@@ -23,10 +23,7 @@ namespace AppATM.BAL
         {
             return _taiKhoanDAL.KiemTraDangNhap(STK, password, out error);
         }
-        public double laySoDu()
-        {
-            return _taiKhoanDAL.laySoDu();
-        }
+        
         public string MD5Hash(string text)
         {
             MD5 md5 = new MD5CryptoServiceProvider();

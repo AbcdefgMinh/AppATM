@@ -12,16 +12,19 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Security.Cryptography;
+using AppATM.DAL.Entities;
 
 namespace AppATM
 {
     public partial class ATM : Form
     {
+        public event CashDelegate Cash;
         private readonly TaiKhoanBAL _taiKhoanBAL;
-        
+        TaiKhoan taiKhoan = null;
         public ATM()
         {
             InitializeComponent();
+            taiKhoan = new TaiKhoan();
             _taiKhoanBAL = new TaiKhoanBAL();
             
         }
@@ -41,43 +44,48 @@ namespace AppATM
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string userName = txtUserName.Text.Trim();
-            string password = _taiKhoanBAL.MD5Hash(txtMatKhau.Text.Trim());
+            string password =_taiKhoanBAL.MD5Hash(txtMatKhau.Text).Trim();
             if (userName == "" || password == "")
             {
                 MessageBox.Show("Vui lòng điền đầy đủ Tên đăng nhập & Mật khẩu!");
 
                 return;
             }
-            string error;
+            using (var dbcontext = new AppRutTien())
+            {
+                //string error;
+                taiKhoan = dbcontext.TaiKhoans.Where(tk => tk.STK == userName && tk.PassWord == password).FirstOrDefault();
+
+                if (taiKhoan !=null)
+                {
+                    MessageBox.Show("Đăng nhập thành công!");
+
+                    txtSoDu.Text = taiKhoan.SoTien.ToString();
+                    txtSoDu.Visible = true;
+                    lblSoDu.Visible = true;
+                    btnRutTien.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Đăng nhập sai\n" );
+                }
+
+            }
             
-            if (_taiKhoanBAL.KiemTraDangNhap(userName, password, out error))
-            {
-                MessageBox.Show("Đăng nhập thành công!");
-                //loginSucess();
-                //this.Close();
-                txtSoDu.Text = _taiKhoanBAL.laySoDu().ToString();
-                txtSoDu.Visible = true;
-                btnRutTien.Visible = true;
-
-
-            }
-            else
-            {
-                MessageBox.Show("Đăng nhập sai\n" + error);
-            }
 
         }
         
         private void btnRutTien_click(object sender, EventArgs e)
         {
-            RutTien rt = new RutTien();
-            rt.Show();
+            RutTien rt = new RutTien(taiKhoan);
+           
             rt.Cash += RutTien_Cash;
+            rt.Show();
         }
         private void RutTien_Cash(double cash)
         {
-            double balance = double.Parse(txtSoDu.Text) - cash;
-            txtSoDu.Text = balance.ToString();
+            //double balance = double.Parse(txtSoDu.Text) - cash;
+            txtSoDu.Text = cash.ToString();
         }
 
         private void txtPass_Validating(object sender, CancelEventArgs e)

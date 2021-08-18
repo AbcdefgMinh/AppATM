@@ -17,7 +17,6 @@ namespace AppATM.DAL.Entities
         [StringLength(50)]
         public string PassWord { get; set; }
 
-        [StringLength(50)]
-        public string SoTien { get; set; }
+        public double? SoTien { get; set; }
     }
 }

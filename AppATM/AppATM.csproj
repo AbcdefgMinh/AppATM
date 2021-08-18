@@ -80,6 +80,7 @@
       <DependentUpon>ATM.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CashDeligate.cs" />
+    <Compile Include="Helpers\RutTienThanhCong.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RutTien.cs">

@@ -26,12 +26,6 @@ namespace AppATM.DAL
                 return false;
             }
         }
-        public double laySoDu()
-        {
-            using (var dbcontext = new AppRutTien())
-            {
-                return double.Parse(dbcontext.TaiKhoans.Select(tk => tk.SoTien).FirstOrDefault());
-            }
-        }
+        
     }
 }

@@ -32,13 +32,13 @@ namespace AppATM
             this.components = new System.ComponentModel.Container();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.lblSTK = new System.Windows.Forms.Label();
-            this.txtSoDu = new System.Windows.Forms.TextBox();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.lblPass = new System.Windows.Forms.Label();
             this.btnDangNhap = new System.Windows.Forms.Button();
             this.btnRutTien = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblSoDu = new System.Windows.Forms.Label();
+            this.txtSoDu = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,16 +60,6 @@ namespace AppATM
             this.lblSTK.TabIndex = 1;
             this.lblSTK.Text = "Số tài khoản : ";
             // 
-            // txtSoDu
-            // 
-            this.txtSoDu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSoDu.Location = new System.Drawing.Point(150, 204);
-            this.txtSoDu.Name = "txtSoDu";
-            this.txtSoDu.ReadOnly = true;
-            this.txtSoDu.Size = new System.Drawing.Size(200, 30);
-            this.txtSoDu.TabIndex = 0;
-            this.txtSoDu.Visible = false;
-            // 
             // txtMatKhau
             // 
             this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -77,6 +67,7 @@ namespace AppATM
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(200, 23);
             this.txtMatKhau.TabIndex = 0;
+            this.txtMatKhau.UseSystemPasswordChar = true;
             this.txtMatKhau.Validating += new System.ComponentModel.CancelEventHandler(this.txtPass_Validating);
             // 
             // lblPass
@@ -129,18 +120,27 @@ namespace AppATM
             this.lblSoDu.Text = "Số dư:";
             this.lblSoDu.Visible = false;
             // 
+            // txtSoDu
+            // 
+            this.txtSoDu.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSoDu.Location = new System.Drawing.Point(150, 208);
+            this.txtSoDu.Name = "txtSoDu";
+            this.txtSoDu.Size = new System.Drawing.Size(200, 27);
+            this.txtSoDu.TabIndex = 3;
+            this.txtSoDu.Visible = false;
+            // 
             // ATM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(384, 311);
+            this.Controls.Add(this.txtSoDu);
             this.Controls.Add(this.btnRutTien);
             this.Controls.Add(this.btnDangNhap);
             this.Controls.Add(this.lblSoDu);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblSTK);
             this.Controls.Add(this.txtMatKhau);
-            this.Controls.Add(this.txtSoDu);
             this.Controls.Add(this.txtUserName);
             this.Name = "ATM";
             this.Text = "ATM";
@@ -154,13 +154,13 @@ namespace AppATM
 
         private System.Windows.Forms.TextBox txtUserName;
         private System.Windows.Forms.Label lblSTK;
-        private System.Windows.Forms.TextBox txtSoDu;
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.Button btnDangNhap;
         private System.Windows.Forms.Button btnRutTien;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label lblSoDu;
+        private System.Windows.Forms.TextBox txtSoDu;
     }
 }
 

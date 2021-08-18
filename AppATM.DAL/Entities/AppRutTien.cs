@@ -8,7 +8,7 @@ namespace AppATM.DAL.Entities
     public partial class AppRutTien : DbContext
     {
         public AppRutTien()
-            : base("name=Model1")
+            : base("name=AppRutTien")
         {
         }
 
@@ -22,10 +22,6 @@ namespace AppATM.DAL.Entities
 
             modelBuilder.Entity<TaiKhoan>()
                 .Property(e => e.PassWord)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<TaiKhoan>()
-                .Property(e => e.SoTien)
                 .IsUnicode(false);
         }
     }
