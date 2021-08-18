@@ -30,5 +30,10 @@ namespace AppATM
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+
+        private void btnHuy_Click(object sender, EventArgs e)
+        {
+            //this.Close();
+        }
     }
 }

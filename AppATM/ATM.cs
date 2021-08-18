@@ -41,7 +41,7 @@ namespace AppATM
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
             string userName = txtUserName.Text.Trim();
-            string password = txtMatKhau.Text.Trim();
+            string password = _taiKhoanBAL.MD5Hash(txtMatKhau.Text.Trim());
             if (userName == "" || password == "")
             {
                 MessageBox.Show("Vui lòng điền đầy đủ Tên đăng nhập & Mật khẩu!");
